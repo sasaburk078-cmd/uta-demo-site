@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uța — тестовая страница</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:#0b0f1a;
+    color:#e8eefc;
+    overflow:hidden;
+    padding:24px;
+  }
+  .bg{position:fixed;inset:0;z-index:0;overflow:hidden}
+  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:float 18s ease-in-out infinite}
+  .b1{width:46vmax;height:46vmax;background:#4f46e5;top:-14vmax;left:-10vmax}
+  .b2{width:38vmax;height:38vmax;background:#06b6d4;bottom:-12vmax;right:-8vmax;animation-delay:-6s}
+  .b3{width:30vmax;height:30vmax;background:#db2777;top:40%;left:45%;animation-delay:-12s}
+  @keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(4vmax,-3vmax) scale(1.12)}66%{transform:translate(-3vmax,4vmax) scale(.92)}}
+
+  .card{
+    position:relative;z-index:1;
+    max-width:640px;width:100%;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:24px;
+    padding:44px 36px;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:0 30px 70px rgba(0,0,0,.55);
+    text-align:center;
+    animation:rise .8s cubic-bezier(.2,.9,.3,1) both;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+  .badge{
+    display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    padding:7px 14px;border-radius:999px;
+    background:rgba(99,102,241,.22);color:#c7d2fe;
+    border:1px solid rgba(129,140,248,.4);
+    margin-bottom:22px;
+  }
+  h1{
+    font-size:clamp(30px,6vw,46px);line-height:1.1;font-weight:800;letter-spacing:-.02em;
+    background:linear-gradient(100deg,#fff 10%,#a5b4fc 45%,#67e8f9 90%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:16px;
+  }
+  p{color:#a9b6d3;font-size:17px;line-height:1.65;margin-bottom:26px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:28px}
+  .item{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+    border-radius:14px;padding:14px 12px;font-size:14px;color:#cfd9ef;
+  }
+  .item span{display:block;font-size:20px;margin-bottom:6px}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:600;font-size:15px;
+    padding:13px 26px;border-radius:12px;color:#0b0f1a;
+    background:linear-gradient(100deg,#a5b4fc,#67e8f9);
+    transition:transform .18s ease, box-shadow .18s ease;
+    box-shadow:0 10px 26px rgba(103,232,249,.28);
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(103,232,249,.42)}
+  footer{margin-top:26px;font-size:13px;color:#6b7a99}
+</style>
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <main class="card">
+    <div class="badge">Test Page</div>
+    <h1>Привет! Это тестовый сайт</h1>
+    <p>Страницу собрал и опубликовал ИИ-агент через GitHub — без редакторов и локальных файлов. Только API, коммит и пара минут времени.</p>
+
+    <div class="grid">
+      <div class="item"><span>⚡</span>Один HTML-файл</div>
+      <div class="item"><span>🎨</span>CSS-анимации</div>
+      <div class="item"><span>📱</span>Адаптивно</div>
+      <div class="item"><span>🌐</span>GitHub Pages</div>
+    </div>
+
+    <a class="btn" href="https://github.com/sasaburk078-cmd/uta-demo-site">Исходники на GitHub →</a>
+    <footer id="ts">загружено только что</footer>
+  </main>
+
+<script>
+  document.getElementById('ts').textContent =
+    'открыто ' + new Date().toLocaleString('ru-RU');
+</script>
+</body>
+</html>
